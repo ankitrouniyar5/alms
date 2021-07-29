@@ -2,20 +2,20 @@ import React  ,{ useEffect }from 'react'
 import {Route , useHistory} from 'react-router-dom'
 import axios from 'axios'
 
-export default function AdminRoute(props) {
+export default function UserRoute(props) {
 
 
     const history = useHistory();
 
-    async function isAdmin(){
-        const is = await axios.get('/admin/isAdmin');
+    async function isUser(){
+        const is = await axios.get('/user/isloggedin');
         if(!is.data){
             history.push("/login");
         }
     }
 
     useEffect(()=>{
-        isAdmin();
+        isUser();
     },[])
 
     const Component = props.component
@@ -26,7 +26,6 @@ export default function AdminRoute(props) {
        
         <Route {...props} 
             render = {(props)=>{
-                
                <Component {...props} />
             }}
         />               

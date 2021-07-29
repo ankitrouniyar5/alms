@@ -152,6 +152,29 @@ a:hover {
   width: 50%;
   margin: 16px;
 }
+
+/* 
+  Notification top styles
+*/
+
+.Notification-box{
+
+  background-color: #6e6b79;
+  border: #14121d;
+  color: #ccc;
+  font-size: 120%;
+  justify-content: center;
+  padding: 10px;
+  
+}
+
+.Notification-box div{
+
+  float: right;
+
+}
+
+
 /* 
 
   ------------Footer styles----------

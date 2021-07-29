@@ -1,4 +1,4 @@
-import React ,{useState, useEffect }from 'react'
+import React ,{useState }from 'react'
 import axios from 'axios';
 import {Link } from 'react-router-dom'
 import { useHistory } from 'react-router';
@@ -20,15 +20,7 @@ export default function AddBranch() {
     const [pin , setPin ] = useState("");
 
 
-    useEffect( ()=>{
-        getIsAdmin();
-    },[])
-    async function getIsAdmin(){
-        const is = await axios.get('/admin/isAdmin');
-        if(is.data === false){
-            history.push("/login");
-        }
-    }
+    
 
     const addPinCode = (e) => {
         e.preventDefault();
@@ -76,10 +68,21 @@ export default function AddBranch() {
         }
     
     }
+
+    const linkStyle = {
+    
+        textDecoration: "none",
+        color : "black",
+        fontSize : "120%",
+        display : "flex",
+        justifyContent: "flex-end",
+        margin : "20px",
+        fontWeight: "bold"
+      };
     return (
         <div>
         {
-             <Link to = '/dashboard'>Dash Board</Link>
+             <Link style = {linkStyle} to = '/dashboard'>Dash Board</Link>
          }
             <div className = "add-branch-form">
                 <form onSubmit={postBranch}>

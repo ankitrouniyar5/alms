@@ -14,7 +14,6 @@ export default function Branches(props) {
 
     useEffect(()=>{
         socket.emit('sendNotification', userToNotify);
-
         return socket.off();
     },[props.history.location , userToNotify])
    

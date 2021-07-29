@@ -10,6 +10,7 @@ import '../styles.css'
 import axios from "axios";
 import io from "socket.io-client";
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment';
 
 
 
@@ -90,7 +91,7 @@ function Notification(props) {
                         <HomeIcon /> Customer's  Address :{ nf.customer_address }<br /><br />
                         <PhoneIcon />Phone :{ nf.customer_phone }<br /><br />
                         <RoomIcon />Searched Pin : { nf.pincode }<br /><br />
-                        <TimerIcon />Searched At : {nf.time} <br /><br />
+                        <TimerIcon />Searched At : <Moment date = {nf.time} /> <br /><br />
                 </div>
         })
     }
@@ -108,11 +109,25 @@ function Notification(props) {
             setPage(page-1);
         }
     }
+
+
+    const linkStyle = {
+    
+        textDecoration: "none",
+        color : "black",
+        fontSize : "120%",
+        display : "flex",
+        justifyContent: "flex-end",
+        margin : "20px",
+        fontWeight: "bold"
+      };
+
     return (
         <div>
          <div className = "container">
          {
-             userRole === "admin" && <Link to = '/dashboard'>Dash Board</Link>
+             userRole === "admin" && <Link style = {linkStyle} to = '/dashboard'>Dash Board</Link>
+        
          }
             <div className = "alert" onClick = {reloadPage}>
                 <Badge badgeContent={ alerts.length } color="primary">
